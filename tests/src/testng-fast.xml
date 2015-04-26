@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DisableAllAgents tests">
+  <test name="DisableAllAgents tests">
+    <classes>
+      <class name="SimpleTest"/>
+    </classes>
+  </test>
+</suite>
+
