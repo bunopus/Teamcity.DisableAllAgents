@@ -17,7 +17,7 @@ import java.util.Map;
 public class UiExtension extends SimplePageExtension {
 
   @NotNull
-  private static final String EXTENSION_INCLUDE_URL = "button.jsp";
+  private static final String EXTENSION_INCLUDE_URL = "buttons.jsp";
 
   @NotNull
   private static final String EXTENSION_AVAILABILITY_URL = "/agents.html";
@@ -33,7 +33,6 @@ public class UiExtension extends SimplePageExtension {
     setPlaceId(PlaceId.BEFORE_CONTENT);
     setPluginName(descriptor.getPluginName());
     setIncludeUrl(descriptor.getPluginResourcesPath(EXTENSION_INCLUDE_URL));
-    Loggers.SERVER.info("==== Plugin loaded " + descriptor.getPluginName() + "  " + descriptor.getPluginResourcesPath(EXTENSION_INCLUDE_URL));
   }
 
   @Override

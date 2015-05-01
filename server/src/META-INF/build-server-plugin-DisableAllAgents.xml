@@ -8,5 +8,6 @@
         >
 
         <bean class="disableAllAgents.UiExtension" init-method="register"/>
+        <bean class="disableAllAgents.AgentsController"/>
 
 </beans>
