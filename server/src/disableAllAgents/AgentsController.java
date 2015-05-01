@@ -31,15 +31,17 @@ public class AgentsController extends BaseController {
   protected ModelAndView doHandle(HttpServletRequest request, HttpServletResponse response) throws Exception {
     try
     {
+//    TODO for some reason null here
       final SUser user = (SUser) request.getUserPrincipal();
       boolean agentsState = Boolean.parseBoolean(request.getParameter(Constants.WEB.AGENTS_STATUS_PARAMETER_NAME));
       List<SBuildAgent> agents =  myBuildAgentManager.getRegisteredAgents();
       for (SBuildAgent agent : agents) {
-        agent.setEnabled(agentsState, user, String.format(Constants.LITERALS.AGENTS_STATUS_CHANGE_REASON, user.getName()));
+        agent.setEnabled(agentsState, user, Constants.LITERALS.AGENTS_STATUS_CHANGE_REASON);
       }
     }
     catch (Exception e)
     {
+      throw e;
       //TODO Exception handling
     }
 
