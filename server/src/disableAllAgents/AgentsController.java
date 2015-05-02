@@ -1,10 +1,10 @@
 package disableAllAgents;
 
 import jetbrains.buildServer.controllers.BaseController;
+import jetbrains.buildServer.log.Loggers;
 import jetbrains.buildServer.serverSide.BuildAgentManager;
 import jetbrains.buildServer.serverSide.SBuildAgent;
 import jetbrains.buildServer.serverSide.SBuildServer;
-import jetbrains.buildServer.users.SUser;
 import jetbrains.buildServer.web.openapi.WebControllerManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -29,22 +29,20 @@ public class AgentsController extends BaseController {
   @Nullable
   @Override
   protected ModelAndView doHandle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    try
-    {
-//    TODO for some reason null here
-      final SUser user = (SUser) request.getUserPrincipal();
-      boolean agentsState = Boolean.parseBoolean(request.getParameter(Constants.WEB.AGENTS_STATUS_PARAMETER_NAME));
-      List<SBuildAgent> agents =  myBuildAgentManager.getRegisteredAgents();
-      for (SBuildAgent agent : agents) {
-        agent.setEnabled(agentsState, user, Constants.LITERALS.AGENTS_STATUS_CHANGE_REASON);
+
+//    TODO Add username to message
+//    Looks like we cannot obtain username here.
+//    Maybe because http://stackoverflow.com/questions/28147261/request-getuserprincipal-is-null-in-requestlistener-despite-that-authenticatio
+    boolean agentsState = Boolean.parseBoolean(request.getParameter(Constants.WEB.AGENTS_STATUS_PARAMETER_NAME));
+    List<SBuildAgent> agents = myBuildAgentManager.getRegisteredAgents();
+    for (SBuildAgent agent : agents) {
+      try {
+        agent.setEnabled(agentsState, null, Constants.LITERALS.AGENTS_STATUS_CHANGE_REASON);
+      } catch (Exception e) {
+        Loggers.SERVER.warn(e.getMessage());
+        Loggers.SERVER.debug(e);
       }
     }
-    catch (Exception e)
-    {
-      throw e;
-      //TODO Exception handling
-    }
-
     return null;
   }
 }

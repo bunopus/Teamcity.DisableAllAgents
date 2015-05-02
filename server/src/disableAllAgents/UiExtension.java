@@ -8,7 +8,6 @@ import jetbrains.buildServer.web.openapi.PlaceId;
 import jetbrains.buildServer.web.openapi.PluginDescriptor;
 import jetbrains.buildServer.web.openapi.SimplePageExtension;
 import jetbrains.buildServer.web.util.WebUtil;
-import jetbrains.buildServer.log.Loggers;
 import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.http.HttpServletRequest;
