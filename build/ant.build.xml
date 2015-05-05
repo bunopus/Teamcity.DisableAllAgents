@@ -3,6 +3,7 @@
 
   <target name="replace-tokens-in-teamcity-plugin-xml">
     <property name="home" value="${artifact.output.path}"/>
+    <property name="build.number" value="0.0.1"/>
 
     <echo message="replacing tokens in teamcity-plugin.xml file under ${home}"/>
 
