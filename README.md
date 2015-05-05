@@ -5,7 +5,7 @@ This plugin allows you to disable and enable all agents on **Agents** tab in Tea
 
 Download
 --------
-Latest binary file *DisableAllAgents.zip* can be downloaded from release folder in GitHub sources [here](https://github.com/bunopus/Teamcity.DisableAllAgents/blob/master/release/DisableAllAgents.zip), or using GitHub [releases](https://github.com/bunopus/Teamcity.DisableAllAgents/releases)
+Latest binary file *DisableAllAgents.zip* can be downloaded from release folder in GitHub sources [here](https://github.com/bunopus/Teamcity.DisableAllAgents/blob/master/release/DisableAllAgents.zip?raw=true), or using GitHub [releases](https://github.com/bunopus/Teamcity.DisableAllAgents/releases)
 
 Installation
 ------------
